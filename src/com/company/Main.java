@@ -3,9 +3,9 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
-   static Scanner number = new Scanner(System.in);
+    static Scanner number = new Scanner(System.in);
 
-    public static void HomeWork1(){
+    public static void HomeWork1() {
         //task 1
         System.out.println("Task 1");
         System.out.println("Pleas input 7 numbers.");
@@ -76,15 +76,13 @@ public class Main {
         else
             System.out.println("Fail!");
 
-        if (salaryOne > salaryTwo && salaryOne > salaryThree){
+        if (salaryOne > salaryTwo && salaryOne > salaryThree) {
             salaryOne += 200;
             System.out.println("First Person have bonus 200");
-        }
-        else if (salaryTwo > salaryOne && salaryTwo > salaryThree){
+        } else if (salaryTwo > salaryOne && salaryTwo > salaryThree) {
             salaryTwo += 200;
             System.out.println("Second Person have bonus 200");
-        }
-        else if (salaryThree > salaryOne && salaryThree > salaryTwo){
+        } else if (salaryThree > salaryOne && salaryThree > salaryTwo) {
             salaryThree += 200;
             System.out.println("Third Person have bonus 200");
         }
@@ -106,6 +104,7 @@ public class Main {
         } else
             System.out.println("Fail!");
     }
+
     public static void Lesson4() {
         //task 1
         System.out.println("Task 1");
@@ -162,11 +161,12 @@ public class Main {
                 System.out.println("Money Bob will be paid: " + (linecode_case3 * 50 / 100 - timesArrivedLate_case3));
         }
     }
+
     public static void Lesson5() {
         //task 1
         System.out.print("Enter number: ");
         int displayNumber = number.nextInt();
-        for(int i =0; i <= displayNumber; i++){
+        for (int i = 0; i <= displayNumber; i++) {
             System.out.println(i);
         }
 
@@ -183,16 +183,14 @@ public class Main {
                     System.out.println(secondNumber);
                 }
             }
-        }
-        else
-        {
+        } else {
             for (int i = firstNumber; firstNumber <= secondNumber; firstNumber++) {
                 System.out.println(firstNumber);
                 if (firstNumber % 2 != 0) {
                     System.out.println(firstNumber);
                 }
 
-                if(firstNumber % 7 ==0)
+                if (firstNumber % 7 == 0)
                     System.out.println(firstNumber);
             }
         }
@@ -204,8 +202,7 @@ public class Main {
         System.out.print("Enter second number: ");
         int secondNumber_2 = number.nextInt();
         int sum = 0;
-        for(int i = secondNumber_2; secondNumber_2 <= firstNumber_2; secondNumber_2++)
-        {
+        for (int i = secondNumber_2; secondNumber_2 <= firstNumber_2; secondNumber_2++) {
             sum += secondNumber_2;
             System.out.println(sum);
         }
@@ -231,8 +228,7 @@ public class Main {
         System.out.print("Enter made of the given symbol: ");
         String symbol = number.next();
 
-        for(int i = 1; i <= sidefirst; i++)
-        {
+        for (int i = 1; i <= sidefirst; i++) {
             for (int j = 1; j < sidesecond; j++)
                 System.out.print(symbol);
             System.out.println(symbol);
@@ -289,69 +285,43 @@ public class Main {
                             System.out.print(" ");
                     }
                     System.out.println(" ");
-            }
-        }}
-    public static void main(String[] args) {
+                }
+        }
+    }
+
+    public static void  HomeWork2() {
         //task 1
-        System.out.print("Enter your number: ");
-        int NuMbEr = number.nextInt();
-        int unit_1 = 0;
-        int unit_2 = 0;
-        int unit_3 = 0;
-        int unit_4 = 0;
-        int unit_5 = 0;
-        int sum = 0;
-        int avg = 0;
+        System.out.println("Task 1");
+        int l = 0;
+        String end = "stop";
+        String all_number = "";
+        int SUM = 0;
+        int AVG = 0;
+        int count_zero = 0;
 
-        if (NuMbEr / 10000 > 0){
-            unit_1 = NuMbEr / 10000;
-            unit_2 = (NuMbEr % 10000) / 1000;
-            unit_3 = (NuMbEr % 1000) / 100;
-            unit_4 = (NuMbEr % 100) / 10;
-            unit_5 = NuMbEr % 10;
+        while (l != -1) {
+            System.out.print("Enter your number: ");
+            String NuMbEr = number.nextLine();
+            System.out.println("Enter \"stop\" for close app");
 
-            sum = unit_1 + unit_2 + unit_3 + unit_4 + unit_5;
-            avg = sum / 5;
+            if(NuMbEr.equals(end))
+                break;
 
-            //for (int i =0; i < 4; i++){
-            //    if(unit_i == 0)
-            //}
-            System.out.println("Your number consists of five number.");
+            all_number += NuMbEr;
+            if(Integer.parseInt(NuMbEr) == 0)
+                count_zero++;
+            l++;
+            SUM += Integer.parseInt(NuMbEr);
+            AVG = SUM / l;
         }
-        else if(NuMbEr / 1000 > 0){
-            unit_1 = NuMbEr / 1000;
-            unit_2 = (NuMbEr % 1000) / 100;
-            unit_3 = (NuMbEr % 100) / 10;
-            unit_4 = NuMbEr % 10;
-            sum = unit_1 + unit_2 + unit_3 +unit_4;
-            avg = sum / 4;
-            System.out.println("Your number consists of four number.");
-        }
-        else if(NuMbEr / 100 > 0){
-            unit_1 = NuMbEr / 100;
-            unit_2 = (NuMbEr % 100) / 10;
-            unit_3 = NuMbEr % 10;
-            sum = unit_1 + unit_2 + unit_3;
-            avg = sum / 3;
-            System.out.println("Your number consists of thee number.");
-        }
-        else if(NuMbEr / 10 > 0){
-            unit_1 = NuMbEr / 10;
-            unit_2 = NuMbEr % 10;
-            sum = unit_1 + unit_2;
-            avg = sum / 2;
-            System.out.println("Your number consists of two number.");
-        }
-        else if(NuMbEr / 1 > 0){
-            unit_1 = NuMbEr;
-            System.out.println("Your number consists of one number.");
-        }
-        //i think about this.....
-
+        System.out.printf("Your number is %s\nArithmetic mean number turned out: %d\nSum number turned out: %d\nAnd your number has %d" +
+                " zeros\n", all_number, AVG, SUM, count_zero);
+        System.out.println(" ");
 
 
 
         //task 2
+        System.out.println("Task 2");
         System.out.print("Enter height array: ");
         int count = number.nextInt();
         for (int i = 0; i < count / 2; i++) {
@@ -366,7 +336,10 @@ public class Main {
             }
             System.out.println(" ");
         }
+    }
+
+    public static void main(String[] args) {
 
 
-
-    }}
+    }
+}
