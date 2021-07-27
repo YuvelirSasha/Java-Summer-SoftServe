@@ -105,6 +105,55 @@ public class Main {
             System.out.println("Fail!");
     }
 
+    public static void HomeWork2() {
+        //task 1
+        System.out.println("Task 1");
+        int l = 0;
+        String end = "stop";
+        String all_number = "";
+        int SUM = 0;
+        int AVG = 0;
+        int count_zero = 0;
+
+        while (l != -1) {
+            System.out.print("Enter your number: ");
+            String NuMbEr = number.nextLine();
+            System.out.println("Enter \"stop\" for close app");
+
+            if(NuMbEr.equals(end))
+                break;
+
+            all_number += NuMbEr;
+            if(Integer.parseInt(NuMbEr) == 0)
+                count_zero++;
+            l++;
+            SUM += Integer.parseInt(NuMbEr);
+            AVG = SUM / l;
+        }
+        System.out.printf("Your number is %s\nArithmetic mean number turned out: %d\nSum number turned out: %d\nAnd your number has %d" +
+                " zeros\n", all_number, AVG, SUM, count_zero);
+        System.out.println(" ");
+
+
+
+        //task 2
+        System.out.println("Task 2");
+        System.out.print("Enter height array: ");
+        int count = number.nextInt();
+        for (int i = 0; i < count / 2; i++) {
+            for (int j = 0; j < count; j++) {
+                System.out.print("***___");
+            }
+            System.out.println(" ");
+        }
+        for (int i = 0; i < count / 2; i++) {
+            for (int j = 0; j < count; j++) {
+                System.out.print("___***");
+            }
+            System.out.println(" ");
+        }
+    }
+
     public static void Lesson4() {
         //task 1
         System.out.println("Task 1");
@@ -289,9 +338,61 @@ public class Main {
         }
     }
 
-    public static void  HomeWork2() {
+    public static void Lesson6() {
         //task 1
         System.out.println("Task 1");
+        int count = 1;
+        int sum = 0;
+        for (int i = 1; i <= 1000; i++) {
+            sum += i;
+        }
+        int avg = sum / 1000;
+        System.out.println(avg);
+        System.out.println();
+
+        //task 2
+        System.out.println("Task 2");
+        System.out.print("Enter your number: ");
+        int NumBER = number.nextInt();
+        while (true) {
+            if (NumBER > 20 || NumBER < 1) {
+                System.out.print("Enter your number: ");
+                NumBER = number.nextInt();
+            } else {
+                sum = 0;
+                for (int i = NumBER; i <= 20; i++) {
+                    sum += i;
+                }
+                System.out.printf("Your sum is: %d\n", sum);
+                break;
+            }
+        }
+        System.out.println();
+
+        //task 3
+        System.out.println("Task 3");
+        System.out.print("Enter your number: ");
+        NumBER = number.nextInt();
+        int product = 0;
+        for (int i = 1; i <= 10; i++) {
+            product = NumBER * i;
+            System.out.printf("%d * %d = %d\n", NumBER,i, product);
+        }
+        System.out.println();
+
+        //task 4
+        System.out.println("Task 4");
+        System.out.print("Enter your number: ");
+        NumBER = number.nextInt();
+
+        for (int i = 1; i < NumBER ; i++) {
+            if (NumBER % i == 0)
+                System.out.print(i + " ");
+        }
+        System.out.println();
+
+        //task 5
+        System.out.println("Task 5");
         int l = 0;
         String end = "stop";
         String all_number = "";
@@ -301,45 +402,25 @@ public class Main {
 
         while (l != -1) {
             System.out.print("Enter your number: ");
-            String NuMbEr = number.nextLine();
+            String linee = number.next();
             System.out.println("Enter \"stop\" for close app");
 
-            if(NuMbEr.equals(end))
+            if(linee.equals(end))
                 break;
 
-            all_number += NuMbEr;
-            if(Integer.parseInt(NuMbEr) == 0)
+            all_number += linee;
+            if(Integer.parseInt(linee) == 0)
                 count_zero++;
             l++;
-            SUM += Integer.parseInt(NuMbEr);
+            SUM += Integer.parseInt(linee);
             AVG = SUM / l;
         }
         System.out.printf("Your number is %s\nArithmetic mean number turned out: %d\nSum number turned out: %d\nAnd your number has %d" +
                 " zeros\n", all_number, AVG, SUM, count_zero);
-        System.out.println(" ");
-
-
-
-        //task 2
-        System.out.println("Task 2");
-        System.out.print("Enter height array: ");
-        int count = number.nextInt();
-        for (int i = 0; i < count / 2; i++) {
-            for (int j = 0; j < count; j++) {
-                System.out.print("***___");
-            }
-            System.out.println(" ");
-        }
-        for (int i = 0; i < count / 2; i++) {
-            for (int j = 0; j < count; j++) {
-                System.out.print("___***");
-            }
-            System.out.println(" ");
-        }
+        System.out.println("");
     }
 
     public static void main(String[] args) {
-
 
     }
 }
