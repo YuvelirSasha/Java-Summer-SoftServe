@@ -1,5 +1,6 @@
 package com.company;
 import java.io.Console;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -418,9 +419,276 @@ public class Main {
         System.out.printf("Your number is %s\nArithmetic mean number turned out: %d\nSum number turned out: %d\nAnd your number has %d" +
                 " zeros\n", all_number, AVG, SUM, count_zero);
         System.out.println("");
+
+
+    }
+
+    public static void Lesson7() {
+        //task 1
+        System.out.println("Task 1");
+        int[] array = {1, 2, 3, 4, 5};
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[4 - i] + " ");
+        }
+        System.out.println();
+
+        //task 2
+        System.out.println("Task 2");
+        int[] pentagonSides = new int[5];
+        int perimeter = 0;
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("Enter length side your pentagon: ", i);
+            pentagonSides[i] = number.nextInt();
+            perimeter += pentagonSides[i];
+        }
+        System.out.println("Perimeter your pentagon is: " + perimeter);
+        System.out.println();
+
+        //task 3
+        System.out.println("Task 3");
+        int[] profitYear = new int[11];
+        int max = 0;
+        int min = 999999999;
+
+        for (int i = 0; i < 11; i++) {
+            System.out.print("Enter your profit for a month: ");
+            profitYear[i] = number.nextInt();
+            if(max < profitYear[i])
+                max = profitYear[i];
+            if(min > profitYear[i])
+                min = profitYear[i];
+        }
+        System.out.printf("Your max %d, Your minimum %d", max, min);
+        System.out.println();
+
+
+        //task 4
+        System.out.println("Task 4");
+        System.out.print("How much your array has numbers: ");
+        int NNumberr = number.nextInt();
+
+        int[] randomArray = new int[NNumberr];
+        int sumNegative = 0;
+        int maxRandom = 0;
+        int minRandom = -1;
+        int evenNumbers = 1;
+        int maxNegative = -999999999;
+        int minNegative = -1;
+
+        for (int i = 0; i < NNumberr; i++) {
+            System.out.print("Enter your number: ");
+            randomArray[i] = number.nextInt();
+
+            if (randomArray[i] < 0){
+                sumNegative += randomArray[i];
+                if (randomArray[i] > maxNegative)
+                    maxNegative = randomArray[i];
+                if(randomArray[i] < minNegative)
+                    minNegative = randomArray[i];
+            }
+
+
+            if(maxRandom < randomArray[i])
+                maxRandom = randomArray[i];
+            if(minRandom > randomArray[i])
+                minRandom = randomArray[i];
+
+            if(randomArray[i] % 2 == 0)
+                evenNumbers *= randomArray[i];
+
+        }
+
+        System.out.printf("The sum of negative elements: %d\n" +
+                "The product of elements between min and max elements: %d\n" +
+                "The product of elements with even numbers: %d\n" +
+                "The sum of elements between the first and last negative elements: %d\n", sumNegative, maxRandom * minRandom, evenNumbers, maxNegative + minNegative);
+        System.out.println();
+
+        //task 7
+        System.out.println("Task 7");
+        System.out.println("We have array: ");
+        int[] movingArray = {4, 6, 0, 8, 0, 1, 3, 0, 1};
+
+        for (int i = 0; i < movingArray.length; i++) {
+            System.out.print(movingArray[i]+ " ");
+        }
+        System.out.println();
+
+        for(int k = 0; k < movingArray.length - 1; ++k){
+            for (int i = 0; i < movingArray.length - 1 - k; i++) {
+
+                if(movingArray[i] == 0){
+                    int number = movingArray[i];
+                    movingArray[i] = movingArray[i + 1];
+                    movingArray[i + 1] = number;
+                }
+
+            }
+        }
+
+        System.out.println("And after sort his we have:");
+        for (int i = 0; i < movingArray.length; i++) {
+            if (movingArray[i] == 0)
+                movingArray[i] = -1;
+            System.out.print(movingArray[i]+ " ");
+        }
+
+        //task 5
+        System.out.println("Task 5");
+        System.out.println("Insertion Sort");
+
+        int[] arrayInsertion = {5, 4, 9, 7, 3, 1, 4, 9, 4, 5};
+
+        for (int i = 0; i < arrayInsertion.length; ++i) {
+            int key = arrayInsertion[i];
+            int j = i - 1;
+
+            while (j >= 0 && arrayInsertion[j] > key) {
+                arrayInsertion[j + 1] = arrayInsertion[j];
+                j = j -1;
+            }
+            arrayInsertion[j + 1] = key;
+        }
+
+        for (int i = 0; i < arrayInsertion.length; i++) {
+            System.out.println(arrayInsertion[i]);
+        }
+
+        System.out.println();
+
+        //task 6
+        System.out.println("Task 6");
+        int[] rrandomArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        Random random = new Random();
+
+        System.out.println("We have this array: ");
+        for (int i: rrandomArray) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < rrandomArray.length; i++) {
+            int rand = random.nextInt(9);
+            int z = rrandomArray[rand];
+            rrandomArray[rand] = rrandomArray[i];
+            rrandomArray[i] = z;
+        }
+
+        for (int i: rrandomArray) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public static void Lesson8_Task1 (int height, int width){
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width - 1; j++) {
+                System.out.print(0);
+            }
+            System.out.println(0);
+        }
+    }
+
+    public static void Lesson8_Task2 (int f) {
+        int num = 1;
+        for (int i = 1; i < f + 1; i++) {
+            num = num * i;
+        }
+        System.out.println("Your factorial is: " + num);
+    }
+
+    public static void Lesson8_Task3 (int n){
+        int count = 0;
+        for (int i = 1; i < 100; i++) {
+            int number = n % i;
+            if(number == 0)
+                count++;
+        }
+        if(count == 2)
+            System.out.println("It is prime number");
+        else
+            System.out.println("It is not prime number");
+    }
+
+    public static void Lesson8_Task4 (int number){
+        System.out.println("Cube of your number is: " + number * number * number);
+    }
+
+    public static void Lesson8_Task5 (int first, int second){
+       int sum = 0;
+
+        for (int i = first; i <= second; i++) {
+            sum += i;
+        }
+
+        System.out.println("Sum of your range is: " + sum);
+    }
+
+    public static void Lesson8_Task6 (int[] array){
+        int max = 0;
+        int min = 9999999;
+        int count = array.length;
+
+        for (int i: array) {
+            if(i > max)
+                max = i;
+            if (i < min)
+                min = i;
+        }
+
+        System.out.printf("Max in your array is a %d and Min a %d. Length array is %d", max, min, count );
+    }
+
+    public static void Lesson8_Task7 (int[] array) {
+
+        for (int i = 0; i < array.length - 1; ++i) {
+            if(i % 2 != 0) {
+                int hlp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = hlp;
+            }
+            if(array.length % 2 ==0){
+                int hlp = array[0];
+                array[0] = array[array.length-1];
+                array[array.length-1] = hlp;
+            }
+
+        }
+
+        System.out.println("Refresh your array:");
+        for (int i: array) {
+            System.out.print(i + " ");
+        }
+
+    }
+
+    public static void Lesson8_Task8 (int[] array){
+        int count = 0;
+
+        for (int j: array) {
+            int hlp = 0;
+            for (int i = 1; i < 100; i++) {
+                int number = j % i;
+                if(number == 0)
+                    hlp++;
+            }
+            if(hlp == 2)
+                count++;
+        }
+
+        System.out.println("Your array have count primal numbers: " + count);
     }
 
     public static void main(String[] args) {
+        Random rnd = new Random();
 
+        int[] arrayyyyy = new int[rnd.nextInt(10)];
+
+        for (int i = 0; i < arrayyyyy.length; i++) {
+            arrayyyyy[i] = rnd.nextInt(101);
+            System.out.print(arrayyyyy[i] + " ");
+        }
+        System.out.println();
+
+        Lesson8_Task8(arrayyyyy);
     }
 }
