@@ -504,35 +504,6 @@ public class Main {
                 "The sum of elements between the first and last negative elements: %d\n", sumNegative, maxRandom * minRandom, evenNumbers, maxNegative + minNegative);
         System.out.println();
 
-        //task 7
-        System.out.println("Task 7");
-        System.out.println("We have array: ");
-        int[] movingArray = {4, 6, 0, 8, 0, 1, 3, 0, 1};
-
-        for (int i = 0; i < movingArray.length; i++) {
-            System.out.print(movingArray[i]+ " ");
-        }
-        System.out.println();
-
-        for(int k = 0; k < movingArray.length - 1; ++k){
-            for (int i = 0; i < movingArray.length - 1 - k; i++) {
-
-                if(movingArray[i] == 0){
-                    int number = movingArray[i];
-                    movingArray[i] = movingArray[i + 1];
-                    movingArray[i + 1] = number;
-                }
-
-            }
-        }
-
-        System.out.println("And after sort his we have:");
-        for (int i = 0; i < movingArray.length; i++) {
-            if (movingArray[i] == 0)
-                movingArray[i] = -1;
-            System.out.print(movingArray[i]+ " ");
-        }
-
         //task 5
         System.out.println("Task 5");
         System.out.println("Insertion Sort");
@@ -577,6 +548,95 @@ public class Main {
         for (int i: rrandomArray) {
             System.out.print(i + " ");
         }
+
+        //task 7
+        System.out.println("Task 7");
+        System.out.println("We have array: ");
+        int[] movingArray = {4, 6, 0, 8, 0, 1, 3, 0, 1};
+
+        for (int i = 0; i < movingArray.length; i++) {
+            System.out.print(movingArray[i]+ " ");
+        }
+        System.out.println();
+
+        for(int k = 0; k < movingArray.length - 1; ++k){
+            for (int i = 0; i < movingArray.length - 1 - k; i++) {
+
+                if(movingArray[i] == 0){
+                    int number = movingArray[i];
+                    movingArray[i] = movingArray[i + 1];
+                    movingArray[i + 1] = number;
+                }
+
+            }
+        }
+
+        System.out.println("And after sort his we have:");
+        for (int i = 0; i < movingArray.length; i++) {
+            if (movingArray[i] == 0)
+                movingArray[i] = -1;
+            System.out.print(movingArray[i]+ " ");
+        }
+
+        //task 8
+        System.out.println("Task 8");
+
+        int[] firstArray = {0, 3, -6, 3, 4};
+        int[] secondArray = {-6, 1, -6, 1, -1};
+
+        System.out.println("We have 2 array:");
+        for (int i: firstArray) {
+            System.out.print(i + " ");
+        }
+
+        System.out.println();
+
+        for (int i: firstArray) {
+            System.out.print(i + " ");
+        }
+
+        int index = 0;
+        int indexZero = 0;
+
+        int[] finalArray = new int[10];
+
+
+        for (int j = 0; j < 5; j++) {
+            if(firstArray[j] > 0){
+                finalArray[index] = firstArray[j];
+                index++;
+            }
+            else if(firstArray[j] == 0)
+                indexZero++;
+        }
+        for (int j = 0; j < 5; j++) {
+            if(secondArray[j] > 0){
+                finalArray[index] = secondArray[j];
+                index++;
+            }
+            else if(secondArray[j] == 0)
+                indexZero++;
+        }
+
+        indexZero += index;
+        for (int i = 0; i < 5; i++) {
+            if (firstArray[i] < 0) {
+                finalArray[indexZero] = firstArray[i];
+                indexZero++;
+            }
+
+            if (secondArray[i] < 0) {
+                finalArray[indexZero] = secondArray[i];
+                indexZero++;
+            }
+
+        }
+
+        System.out.println("Now we have new array:");
+        for (int i: finalArray) {
+            System.out.print(i + " ");
+        }
+
     }
 
     public static void Lesson8_Task1 (int height, int width){
@@ -588,12 +648,13 @@ public class Main {
         }
     }
 
-    public static void Lesson8_Task2 (int f) {
+    public static int Lesson8_Task2 (int f) {
         int num = 1;
         for (int i = 1; i < f + 1; i++) {
             num = num * i;
         }
-        System.out.println("Your factorial is: " + num);
+
+        return num;
     }
 
     public static void Lesson8_Task3 (int n){
@@ -609,18 +670,18 @@ public class Main {
             System.out.println("It is not prime number");
     }
 
-    public static void Lesson8_Task4 (int number){
-        System.out.println("Cube of your number is: " + number * number * number);
+    public static int Lesson8_Task4 (int number){
+        return number * number * number;
     }
 
-    public static void Lesson8_Task5 (int first, int second){
+    public static int Lesson8_Task5 (int first, int second){
        int sum = 0;
 
         for (int i = first; i <= second; i++) {
             sum += i;
         }
 
-        System.out.println("Sum of your range is: " + sum);
+        return sum;
     }
 
     public static void Lesson8_Task6 (int[] array){
@@ -680,15 +741,5 @@ public class Main {
 
     public static void main(String[] args) {
         Random rnd = new Random();
-
-        int[] arrayyyyy = new int[rnd.nextInt(10)];
-
-        for (int i = 0; i < arrayyyyy.length; i++) {
-            arrayyyyy[i] = rnd.nextInt(101);
-            System.out.print(arrayyyyy[i] + " ");
-        }
-        System.out.println();
-
-        Lesson8_Task8(arrayyyyy);
     }
 }
