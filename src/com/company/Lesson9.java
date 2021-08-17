@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Lesson9 {
     public static int Max(int[] array){
         int max = 0;
@@ -46,8 +48,72 @@ public class Lesson9 {
 
     }
 
-    public static int daysBerweenYears (int yearFirst, int yearSecond){
+    public static int daysBetweenYears (int yearFirst, int yearSecond){
         return LeapYear(yearFirst) - LeapYear(yearSecond);
+    }
+
+    public static void printArraysTwo (int[][] array){
+        System.out.println();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                System.out.print(" " + array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void chess (int coordinateX, int coordinateY, int[][] chessboard){
+
+        int count = 2;
+        chessboard[coordinateX][coordinateY] = count;
+
+
+
+
+
+
+
+        //right-bottom
+        if ((coordinateX + 1) < chessboard.length && (coordinateY + 2) < chessboard[0].length && chessboard[coordinateX + 1][coordinateY + 2] == 1) {
+            chessboard[coordinateX+ 1][coordinateY + 2] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //right-top
+        else if ((coordinateX - 1) < chessboard.length && (coordinateY + 2) < chessboard[0].length && chessboard[coordinateX - 1][coordinateY + 2] == 1 ) {
+            chessboard[coordinateX - 1][coordinateY + 2] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //bottom-right
+        else if ((coordinateX + 2) < chessboard.length && (coordinateY + 1) < chessboard[0].length && chessboard[coordinateX + 2][coordinateY + 1] == 1) {
+            chessboard[coordinateX + 2][coordinateY + 1] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //bottom-left
+        else if ((coordinateX + 2) < chessboard.length && (coordinateY - 1) < chessboard[0].length && chessboard[coordinateX + 2][coordinateY - 1] == 1) {
+            chessboard[coordinateX + 2][coordinateY - 1] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //top-left
+        else if ((coordinateX - 2) < chessboard.length && (coordinateY + 1) < chessboard[0].length && chessboard[coordinateX - 2][coordinateY + 1] == 1) {
+            chessboard[coordinateX - 2][coordinateY + 1] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //top-right
+        else if ((coordinateX - 2) < chessboard.length && (coordinateY - 1) < chessboard[0].length && chessboard[coordinateX - 2][coordinateY - 1] == 1) {
+            chessboard[coordinateX - 2][coordinateY - 1] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //left-bottom
+        else if ((coordinateX + 1) < chessboard.length && (coordinateY - 2) < chessboard[0].length && chessboard[coordinateX + 1][coordinateY - 2] == 1) {
+            chessboard[coordinateX + 1][coordinateY - 2] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+        //left-top
+        else if ((coordinateX - 1) < chessboard.length && (coordinateY - 2) < chessboard[0].length && chessboard[coordinateX - 1][coordinateY - 2] == 1) {
+            chessboard[coordinateX - 1][coordinateY - 2] = ++count;
+            chess(coordinateX, coordinateY, chessboard);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -64,8 +130,20 @@ public class Lesson9 {
 
         //task 3
         System.out.println(daysBerweenYears(795, 3624));
+        System.out.println();
 
         //task 5
-        int[][] chessboard = {{1, 1, 1, 1, 1, 1},{1, 1, 1, 1, 1, 1,}};
+        System.out.println("Task 5");
+        int[][] array = new int[6][6];
+        chess(0,0, array);
+
+
+        int coordinateX = 0;
+        int coordinateY = 0;
+
+
+
+
+
     }
 }
