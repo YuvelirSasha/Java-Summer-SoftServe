@@ -48,7 +48,7 @@ public class Lesson9 {
 
     }
 
-    public static int daysBetweenYears (int yearFirst, int yearSecond){
+    public static int daysBerweenYears (int yearFirst, int yearSecond){
         return LeapYear(yearFirst) - LeapYear(yearSecond);
     }
 
