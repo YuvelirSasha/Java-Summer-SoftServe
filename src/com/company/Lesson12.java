@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Lesson12 {
     public static void main(String[] args) {
+
         Library test2 = new Library();
         test2.AddBook();
         test2.AddBook();
@@ -15,10 +16,10 @@ public class Lesson12 {
 }
 
 class Book {
-    String Title;
-    String AuthorName;
+    private String Title;
+    private String AuthorName;
     private String PublisherName;
-    int YearPublisher;
+    private int YearPublisher;
     private int CountPages;
 
     {
@@ -49,12 +50,24 @@ class Book {
         System.out.printf("Count pages in book: %d\n", this.CountPages);
         System.out.println("----------------");
     }
+
+    public String GetAuthorName(){
+        return this.AuthorName;
+    }
+
+    public String GetTitle(){
+        return this.Title;
+    }
+
+    public int GetYear(){
+        return this.YearPublisher;
+    }
 }
 
 class Library {
     Scanner scanner = new Scanner(System.in);
     private int CountBook;
-    public Book[] books = new Book[CountBook];
+    private Book[] books = new Book[CountBook];
 
     {
         CountBook = 0;
@@ -94,7 +107,7 @@ class Library {
     public void FindAuthorName(String name){
         int helpcount = 0;
         for (int i = 0; i < books.length; i++) {
-            if (name.equals(books[i].AuthorName)){
+            if (name.equals(books[i].GetAuthorName())){
                 books[i].GetBook();
                 ++helpcount;
                 break;
@@ -107,7 +120,7 @@ class Library {
     public void FindTitle(String name){
         int helpcount = 0;
         for (int i = 0; i < books.length; i++) {
-            if (name.equals(books[i].Title)){
+            if (name.equals(books[i].GetTitle())){
                 books[i].GetBook();
                 ++helpcount;
                 break;
@@ -120,7 +133,7 @@ class Library {
     public void FindYear(int number){
         int helpcount = 0;
         for (int i = 0; i < books.length; i++) {
-            if (number == books[i].YearPublisher){
+            if (number == books[i].GetYear()){
                 books[i].GetBook();
                 ++helpcount;
                 break;
@@ -131,17 +144,9 @@ class Library {
     }
 
     public void SortByPublicationYear(){
-        System.out.println("You have this:");
-
-        for (int i = 0; i < books.length; i++) {
-            books[i].GetBook();
-        }
-
-        System.out.println("After sort you have this:");
-
         for (int i = 0; i < books.length - 1; i++) {
             for (int j = 0; j < books.length - i - 1; j++) {
-                if (books[j].YearPublisher > books[j + 1].YearPublisher){
+                if (books[j].GetYear() > books[j + 1].GetYear()){
                     Book[] temp = new Book[1];
                     temp[0] = books[j];
                     books[j] = books[j + 1];
@@ -149,25 +154,13 @@ class Library {
                 }
             }
         }
-
-        for (int i = 0; i < books.length; i++) {
-            books[i].GetBook();
-        }
     }
 
     public void SortByTitle(){
-        System.out.println("You have this:");
-
-        for (int i = 0; i < books.length; i++) {
-            books[i].GetBook();
-        }
-
-        System.out.println("After sort you have this:");
-
         for (int i = 0; i < books.length - 1; i++) {
             for (int j = 0; j < books.length - i - 1; j++) {
-                String firstb = books[j].Title;
-                String nextb = books[j + 1].Title;
+                String firstb = books[j].GetTitle();
+                String nextb = books[j + 1].GetTitle();
                 if (firstb.compareTo(nextb) > 0){
                     Book[] temp = new Book[1];
                     temp[0] = books[j];
@@ -175,10 +168,6 @@ class Library {
                     books[j + 1] = temp[0];
                 }
             }
-        }
-
-        for (int i = 0; i < books.length; i++) {
-            books[i].GetBook();
         }
     }
 }
