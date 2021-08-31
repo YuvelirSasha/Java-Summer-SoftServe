@@ -20,6 +20,7 @@ public class Lesson14 {
         cmp.AddDisk(0, cd);
         cmp.ShowDisk();
         cmp.ShowPrintDevice();
+        System.out.println(cmp);
     }
 
     public static void TestAre(Shape shape){
@@ -209,6 +210,13 @@ class Comp{
         return false;
     }
 
+    @Override
+    public String toString(){
+        return "Класс Comp має:\nПараметер countDisk,\nПараметер countPrintDevice,\nПараметр disk,\nПараметр printDevice,\n"
+                + "Метод AddDevice(),\nМетод AddDisk(),\nМетод CheckDisk(),\nМетод Comp(),\nМетод InsertReject(),\nМетод PrintInfo()"
+                + "Метод ReadInfo(),\nМетод ShowDisk(),\nМетод ShowPrintDevice()\nМетод WriteInfo().";
+    }
+
 
 }
 
@@ -239,6 +247,11 @@ abstract class Disk implements IDisk{
     public void Write(String text) {
         System.out.println(text);
     }
+
+    @Override
+    public String toString(){
+        return "Клас Disk має:\nПараметер memory,\nПараметер memSize,\nМетод Disk(),\nМетод GetName(),\nМетод Read(),\nМето Write().";
+    }
 }
 
 class Printer implements IPrintInformation{
@@ -251,6 +264,11 @@ class Printer implements IPrintInformation{
     @Override
     public void Print(String str) {
         System.out.println(str);
+    }
+
+    @Override
+    public String toString(){
+        return "Клас Printer має:\nМетод GetName(),\nМетод Print().";
     }
 }
 
@@ -265,6 +283,11 @@ class Monitor implements IPrintInformation{
     public void Print(String str) {
         System.out.println(str);
     }
+
+    @Override
+    public String toString(){
+        return "Клас Monitor має:\nМетод GetName(),\nМетод Print().";
+    }
 }
 
 class HDD extends Disk{
@@ -272,6 +295,11 @@ class HDD extends Disk{
     @Override
     public String GetName(){
         return "It HDD!";
+    }
+
+    @Override
+    public String toString(){
+        return "Класс HDD має:\nМетод GetName()";
     }
 }
 
@@ -305,6 +333,11 @@ class DVD extends Disk implements IRemovableDisk{
     public String GetName(){
         return "It is DVD!";
     }
+
+    @Override
+    public String toString(){
+        return "Класс DVD має:\nПараметер hasDisk,\nМетод GetName(),\nМетод Insert,\nМетод Reject.";
+    }
 }
 
 class Flash extends Disk implements IRemovableDisk{
@@ -336,6 +369,11 @@ class Flash extends Disk implements IRemovableDisk{
     @Override
     public String GetName(){
         return "Flash!";
+    }
+
+    @Override
+    public String toString(){
+        return "Класс Flash має:\nПараметер hasDisk,\nМетод GetName(),\nМетод Insert,\nМетод Reject.";
     }
 }
 
@@ -374,13 +412,17 @@ class CD extends Disk implements IRemovableDisk{
     public String GetName(){
         return "CD!";
     }
+
+    @Override
+    public String toString(){
+        return "Класс СD має:\nПараметер hasDisk,\nМетод GetName(),\nМетод Insert,\nМетод Reject.";
+    }
 }
 
 interface IPrintInformation{
     String GetName();
 
     void Print(String str);
-
 }
 
 interface IDisk{
